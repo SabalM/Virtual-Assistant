@@ -105,7 +105,7 @@ for epoch in range(epochs):
         loss.backward()
         optimizer.step()
 
-    if epoch%250 == 0 or epoch == epochs-1:
+    if epoch%100 == 0 or epoch == epochs-1:
         print(f'Epoch:{epoch} --- Train loss: {loss:.4f}')
 
 data = {
@@ -122,4 +122,3 @@ model_save_path = "model/intent.pth"
 print(f'Saving trained model to directory {model_save_path}')
 torch.save(data, model_save_path)
 print(f'Saved trained model to directory {model_save_path}')
-

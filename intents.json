@@ -76,7 +76,10 @@
             "responses": [
                 "Sorry, can't understand you",
                 "Please give me more info",
-                "Not sure I understand"
+                "Not sure I understand",
+                "I'm having trouble understanding that",
+                "Could you please repeat that?",
+                "I didn't catch that, could you repeat it?"
             ],
             "context": [
                 ""
@@ -85,11 +88,11 @@
         {
             "tag": "options",
             "patterns": [
-                "How you could help me?",
-                "What you can do?",
-                "What help you provide?",
-                "How you can be helpful?",
-                "What support is offered"
+                "How can you help me?",
+                "What can you do?",
+                "What help do you provide?",
+                "How can you be helpful?",
+                "What support is offered?"
             ],
             "responses": [
                 "I am a general purpose chatbot. My capabilities are : \n 1. I can chat with you. Try asking me for jokes or riddles! \n 2. Ask me the date and time \n 3. I can google search for you. Use format google: your query \n 4. I can get the present weather for any city. Use format weather: city name \n 5. I can get you the top 10 trending songs globally. Type 'songs' \n 6. I can set a timer for you. Enter 'set a timer: minutes to timer' \n For suggestions to help me improve, send an email to my creator shashinmaharjan@gmail.com . Thank you!! "
@@ -211,9 +214,9 @@
                 "What's the forecast for the week"
             ],
             "responses": [
-                "Sure! What city would you like the weather forecast for?",
-                "I'd be happy to check the weather. Could you please tell me the city?",
-                "Great! To provide the weather forecast, I just need to know the city name. What city are you interested in?"
+                "The current temperature in {city} is {temperature} degrees Celsius. And, currently the weather is {description}.",
+                "It's {temperature} degrees Celsius in {city} right now. The weather is {description}.",
+                "In {city}, the temperature is {temperature} degrees Celsius. The weather condition is {description}."
             ]
         },
         {
@@ -222,14 +225,21 @@
                 "You are awesome",
                 "you are the best",
                 "you are great",
-                "you are good"
+                "you are good",
+                "You're amazing",
+                "You're fantastic",
+                "You're brilliant",
+                "You're awesome"
             ],
             "responses": [
-                "Thank you!"
+                "Thank you!",
+                "Thank you! You're pretty awesome yourself!",
+                "You're too kind! Thank you!",
+                "Aw, shucks! Thanks!"
             ]
         },
         {
-            "tag": "nicetty",
+            "tag": "nicety",
             "patterns": [
                 "it was nice talking to you",
                 "good talk"
@@ -260,12 +270,25 @@
             ]
         },
         {
+            "tag": "greetreply",
+            "patterns": [
+                "i am good",
+                "I'm good",
+                "i am fine",
+                " i'm fine",
+                "good"
+            ],
+            "responses": [
+                "Good to know!"
+            ]
+        },
+        {
             "tag": "timer",
             "patterns": [
                 "set a timer"
             ],
             "responses": [
-                "..."
+                "Sure, for how long?"
             ]
         },
         {
@@ -358,17 +381,43 @@
             ]
         },
         {
-            "_comment": "Play YouTube",
-            "tag": "YouTube",
+            "tag": "email",
             "patterns": [
-                "play video on YouTube",
-                "watch video on YouTube",
-                "open YouTube",
-                "search video on YouTube",
-                "find video on YouTube"
+                "email",
+                "send email",
+                "Send an email",
+                "Send an email for me",
+                "write an email",
+                "write me an email"
             ],
             "responses": [
-                "Sure! Opening YouTube...",
+                "Sure, who would you like to send the email to?"
+            ]
+        },
+        {
+            "tag": "volume",
+            "patterns": [
+                "volume",
+                "change volume",
+                "set the volume to",
+                "change the volume"
+            ],
+            "responses": [
+                "Sure, what would you like to set the volumn to?"
+            ]
+        },
+        {
+            "tag": "youtube",
+            "patterns": [
+                "video",
+                "play video",
+                "play a video",
+                "play me a video",
+                "youtube",
+                "play video on youtube"
+            ],
+            "responses": [
+                "Sure, what video would you like to play on Youtube?",
                 "Let me find that for you on YouTube.",
                 "Playing video on YouTube...",
                 "Alright! Let's open YouTube.",
@@ -378,6 +427,10 @@
         {
             "tag": "Shutdown",
             "patterns": [
+                "Shutdown the computer",
+                "shutdown",
+                "turn off the computer",
+                "turn off",
                 "Shutdown the device",
                 "Turn off the device",
                 "Off the device",
@@ -385,7 +438,221 @@
                 "Can you turn off the device"
             ],
             "responses": [
-                "Sure! Turning off the device..."
+                "Sure! Turning off the device...",
+                "Ok, shutting down the computer......."
+            ]
+        },
+        {
+            "tag": "music",
+            "patterns": [
+                "Play music",
+                "Music",
+                "Can you recommend some songs?",
+                "I want to listen to music"
+            ],
+            "responses": [
+                "Sure! What genre or artist are you in the mood for?",
+                "Let me find some great tunes for you!",
+                "I'd love to! What kind of music do you enjoy?"
+            ]
+        },
+        {
+            "tag": "chatGPT",
+            "patterns": [
+                "Open chat",
+                "Open chatGPT",
+                "chatGPT"
+            ],
+            "responses": [
+                "opening chatGPT",
+                "Please give me more info",
+                "Not sure I understand"
+            ]
+        },
+        {
+            "tag": "ToDoList",
+            "patterns": [
+                "Add a task to my to-do list",
+                "Create a new task",
+                "Add an item to my task list",
+                "Remind me to do something",
+                "Put [task] on my to-do list",
+                "Make a note of [task]",
+                "I need to [task]",
+                "Schedule [task]"
+            ],
+            "responses": [
+                "Sure! What task would you like to add?",
+                "Got it! What do you need to do?",
+                "Adding task to your to-do list. What's the task?",
+                "Okay, tell me what you need to be reminded of.",
+                "Sure thing! What task should I add to your list?",
+                "Noted! What task do you want to add?",
+                "I'll add that to your to-do list. What's the task?",
+                "Okay, let's schedule that task. What do you need to do?"
+            ]
+        },
+        {
+            "tag": "copyfiles",
+            "patterns": [
+                "Copy file [source] to [destination]",
+                "Duplicate [source] and save as [destination]",
+                "Make a copy of [source] in [destination]",
+                "Copy [source] file",
+                "Duplicate [source]",
+                "Copy [source] to [destination] directory"
+            ],
+            "responses": [
+                "Got it! Copying [source] to [destination].",
+                "Copying file [source] to [destination].",
+                "Making a duplicate of [source] and saving it as [destination].",
+                "Sure! I'll copy [source] to [destination].",
+                "Making a copy of [source] file.",
+                "Copying [source] to [destination] directory."
+            ]
+        },
+        {
+            "tag": "movefiles",
+            "patterns": [
+                "Move file [source] to [destination]",
+                "Transfer [source] to [destination]",
+                "Relocate [source] file to [destination]",
+                "Move [source] file",
+                "Transfer [source]",
+                "Move [source] to [destination] directory"
+            ],
+            "responses": [
+                "Moving [source] to [destination].",
+                "Transferring file [source] to [destination].",
+                "Relocating [source] file to [destination].",
+                "Sure! I'll move [source] to [destination].",
+                "Moving [source] file.",
+                "Moving [source] to [destination] directory."
+            ]
+        },
+        {
+            "tag": "setreminder",
+            "patterns": [
+                "Remind me to [task] at [time]",
+                "Set a reminder for [task] at [time]",
+                "Remind me about [task] at [time]",
+                "Create a reminder for [task] at [time]",
+                "Reminder: [task] at [time]",
+                "Remind me at [time] to [task]"
+            ],
+            "responses": [
+                "Sure! I'll remind you to [task] at [time].",
+                "Setting a reminder for [task] at [time].",
+                "Got it! I'll remind you about [task] at [time].",
+                "Creating a reminder for [task] at [time].",
+                "Reminder set: [task] at [time].",
+                "I'll remind you at [time] to [task]."
+            ]
+        },
+        {
+            "tag": "searchinfo",
+            "patterns": [
+                "Search for [query]",
+                "Find information about [query]",
+                "Look up [query]",
+                "Google search: [query]",
+                "What is [query]?",
+                "Tell me about [query]"
+            ],
+            "responses": [
+                "Searching for information about [query]...",
+                "Finding details about [query]...",
+                "Looking up [query]...",
+                "Let me Google that for you: [query]",
+                "Here's what I found about [query]:",
+                "Sure! I'll search for information about [query]."
+            ]
+        },
+        {
+            "tag": "playvideo",
+            "patterns": [
+                "Play video [title]",
+                "Watch [title]",
+                "Play [title] on YouTube",
+                "Open video [title]",
+                "Show me [title] on YouTube"
+            ],
+            "responses": [
+                "Sure! Playing video [title]...",
+                "Opening [title] on YouTube...",
+                "Playing [title] for you...",
+                "Here's the video [title] you requested:",
+                "Let's watch [title] now."
+            ]
+        },
+        {
+            "tag": "personalrecommendation",
+            "patterns": [
+                "Show me my recommended videos",
+                "What are my personalized recommendations?",
+                "Access my YouTube recommendations",
+                "Show my suggested videos",
+                "What should I watch?"
+            ],
+            "responses": [
+                "Sure! Here are your personalized recommendations:",
+                "Accessing your recommended videos...",
+                "Let me find your personalized recommendations...",
+                "Here are some suggested videos for you:",
+                "I'll fetch your recommended videos right away."
+            ]
+        },
+        {
+            "tag": "manageplaylist",
+            "patterns": [
+                "Create a new playlist",
+                "Add [video] to playlist [name]",
+                "Remove [video] from playlist [name]",
+                "Delete playlist [name]",
+                "Rename playlist [name] to [new name]",
+                "Show my playlists"
+            ],
+            "responses": [
+                "Creating a new playlist...",
+                "Adding [video] to playlist [name]...",
+                "Removing [video] from playlist [name]...",
+                "Deleting playlist [name]...",
+                "Renaming playlist [name] to [new name]...",
+                "Here are your playlists:"
+            ]
+        },
+        {
+            "tag": "createshortcut",
+            "patterns": [
+                "Create shortcut for [application]",
+                "Add shortcut for [application]",
+                "Bookmark [application]",
+                "Make a shortcut for [application]",
+                "Save [application] shortcut"
+            ],
+            "responses": [
+                "Sure! Creating a shortcut for [application]...",
+                "Adding shortcut for [application]...",
+                "Bookmarking [application]...",
+                "Making a shortcut for [application]...",
+                "Saving [application] shortcut..."
+            ]
+        },
+        {
+            "tag": "accessbookmark",
+            "patterns": [
+                "Open bookmarked applications",
+                "Show my bookmarked apps",
+                "Access saved shortcuts",
+                "List my saved applications",
+                "What applications do I have bookmarked?"
+            ],
+            "responses": [
+                "Sure! Here are your bookmarked applications:",
+                "Opening your bookmarked apps...",
+                "Accessing your saved shortcuts...",
+                "Listing your saved applications...",
+                "Here's the list of applications you have bookmarked:"
             ]
         },
         {
@@ -400,14 +667,41 @@
             ]
         },
         {
-            "tag": "LogOff",
+            "tag": "restartdevice",
             "patterns": [
-                "Logoff the device",
-                "Go to Logoff mode",
-                "Logoff device"
+                "Restart the device",
+                "Reboot the system",
+                "Power cycle",
+                "Turn off and restart",
+                "Restart computer",
+                "Reboot device"
             ],
             "responses": [
-                "Sure! Turning the device to LogOff mode..."
+                "Sure! Restarting the device...",
+                "Rebooting the system...",
+                "Power cycling...",
+                "Turning off and restarting...",
+                "Restarting the computer...",
+                "Rebooting the device..."
+            ]
+        },
+        {
+            "tag": "logoff",
+            "patterns": [
+                "Log off",
+                "Sign out",
+                "Log out of account",
+                "Sign off",
+                "Logout from device",
+                "End session"
+            ],
+            "responses": [
+                "Sure! Logging off...",
+                "Signing out...",
+                "Logging out of account...",
+                "Signing off...",
+                "Logging out from device...",
+                "Ending session..."
             ]
         }
     ]

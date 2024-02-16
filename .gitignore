@@ -13,3 +13,6 @@ weather_data.json
 offline_speech/
 __pycache__
 automation/
+
+# Chrome Driver 
+core/chrome_driver

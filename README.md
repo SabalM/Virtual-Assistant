@@ -6,12 +6,41 @@ To install the required Python packages you can use the following command:
 ```bash
 pip install -r requirements.txt
 ```
+### Train the Intent Classifier Model
+To run the `train.py`, load the dependencies requirements and use the following command:
+```bash
+py .\neuralnet\train.py
+```
 
-### Run script
-To run the `main.py`, load the dependencies requirements and use the following command:
+The `intent.pth` should be saved under `model` directory after executing `train.py`
+
+If you want to customize the intent according to your needs, add the `tags`, `patterns` and `responses` inside `intents.json` in following format and re-run `train.py` while adding functionality features in `chat.py`. The `intent.json` should follow this base format:
+
+```json
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi there",
+                "Hello",
+                "yo"
+            ],
+            "responses": [
+                "Hello",
+                "Good to see you again",
+                "Hi there, how can I help?"
+            ],
+        }
+    ]
+}
+```
+
+### Run Chatbot
+To run the `chat.py` use the following command:
 
 ```bash
-py main.py
+py chat.py
 ```
 
 ### API Refrences
@@ -27,6 +56,8 @@ Below is a list of websites and APIs used in this project. Click on the links to
 ```bash
 WEATHER_API_KEY = "{{secret.YOUR_API_KEY}}"
 ```
+
+`Note: Currently the project is in WIP phase. And will be shortly integrated with speech recognizer engine after debugging and integrating necessary features.`
 
 ### Check model
 

@@ -126,6 +126,9 @@ while True:
                 elif tag == "Sleep" or tag == "Shutdown" or tag == "LogOff":
                     choice = input(f"{RED}{bot_name}{RESET}: Enter device control mode once again to verify\n1. sleep\n2. shutdown\n3. logoff\n").lower()
                     cmd = system_control(choice)
+                    print(f"Running script: {cmd}")
+                    
+                    # TODO: Exception for timer loop
                     for timer in range(5, 0, -1):  # Countdown from 5 to 1
                         print(f"{RED}{bot_name}{RESET}: {response} in {timer} sec{RESET}", end="\r")
                         time.sleep(1)  # 1-second delay between countdown messages
@@ -135,7 +138,15 @@ while True:
                 elif tag == "E_mail":
                     pass
                 
-                # """TODO: VOLUME CONTROL"""
+                
+                # TODO: VOLUME CONTROL
+                # TODO: Storing messages in txt or docx file
+                # TODO: Reminder, Alarm, Events, To-do list
+                # TODO: ChatGPT
+                # TODO: Email
+                # TODO: Application Bookmark
+                # TODO: File search and handling 'Copy, Renaming, Move Folders/Files'  
+                # TODO: Final Speech Transcription Integration
 
 
                 else:

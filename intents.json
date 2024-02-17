@@ -214,9 +214,9 @@
                 "What's the forecast for the week"
             ],
             "responses": [
-                "The current temperature in {city} is {temperature} degrees Celsius. And, currently the weather is {description}.",
-                "It's {temperature} degrees Celsius in {city} right now. The weather is {description}.",
-                "In {city}, the temperature is {temperature} degrees Celsius. The weather condition is {description}."
+                "Sure! What city would you like the weather forecast for?",  
+                "I'd be happy to check the weather. Could you please tell me the city?",  
+                "Great! To provide the weather forecast, I just need to know the city name. What city are you interested in?"
             ]
         },
         {
@@ -267,19 +267,6 @@
             ],
             "responses": [
                 "Personally, I find my creator 'Shashin' very inspiring. I might not be very fair though... since half of me was also built by 'Saugat', 'Sabal' and 'Neema'."
-            ]
-        },
-        {
-            "tag": "greetreply",
-            "patterns": [
-                "i am good",
-                "I'm good",
-                "i am fine",
-                " i'm fine",
-                "good"
-            ],
-            "responses": [
-                "Good to know!"
             ]
         },
         {

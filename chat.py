@@ -17,6 +17,11 @@ from utils.weather import *
 from utils.online_surf import *
 from utils.device_control import *
 
+#for volume control
+from utils.volume_control import ActionHandler
+# Instantiate ActionHandler for volume control
+action_handler = ActionHandler()
+
 # Setting device agnostic code
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(f"Loaded model on: {device}")
@@ -55,7 +60,7 @@ bot_name = "ByteBot"
 print("Let's chat! (type 'quit' to exit)")
 while True:
     sentence = input(f"{GREEN}You{RESET}: ")
-    if sentence == "bye":
+    if sentence == "quit":
         break
 
     sentence = tokenize(sentence)
@@ -139,7 +144,13 @@ while True:
                     pass
                 
                 
-                # TODO: VOLUME CONTROL
+                # VOLUME CONTROL
+                elif tag == "Volume_Up":
+                    print("Volume")
+                    action_handler.volume_increase()
+                elif tag == "Volume_Down":
+                    action_handler.volume_decrease()
+
                 # TODO: Storing messages in txt or docx file
                 # TODO: Reminder, Alarm, Events, To-do list
                 # TODO: ChatGPT

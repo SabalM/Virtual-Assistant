@@ -30,9 +30,6 @@ class ActionHandler:
                 # Increase volume for non-Windows systems
                 # require cliclick to be installed
                 os.system("cliclick kp:volume-up kp:volume-up") # volume increase by two clicks
-                
-                # native function for mac only
-                # os.system("osascript -e 'set volume output volume (output volume of (get volume settings) + 10)'")
             self.logger.info("Volume Increased")
         except Exception as e:
             self.logger.error("Error increasing volume: %s", e)
@@ -51,9 +48,6 @@ class ActionHandler:
                 # Decrease volume for non-Windows systems
                 # require cliclick to be installed
                 os.system("cliclick kp:volume-down kp:volume-down") # volume decrease by two clicks
-                
-                # native function for mac only it wont show the volume change indicator
-                # os.system("osascript -e 'set volume output volume (output volume of (get volume settings) - 10)'")
-                # print("Volume Decreased")
+            self.logger.info("Volume Dncreased")
         except Exception as e:
             self.logger.error("Error decreasing volume: %s", e)

@@ -17,5 +17,12 @@ automation/
 # Chrome Driver 
 core/chrome_driver
 
-#volume control log
-action_handler.log
+# volume control log
+# To note you might want to check
+action_handler.log  
+
+# Application paths
+apps.json
+
+# testing scripts
+test.py

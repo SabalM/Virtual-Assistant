@@ -467,19 +467,6 @@
             ]
         },
         {
-            "tag": "chatGPT",
-            "patterns": [
-                "Open chat",
-                "Open chatGPT",
-                "chatGPT"
-            ],
-            "responses": [
-                "opening chatGPT",
-                "Please give me more info",
-                "Not sure I understand"
-            ]
-        },
-        {
             "tag": "ToDoList",
             "patterns": [
                 "Add a task to my to-do list",
@@ -579,23 +566,6 @@
             ]
         },
         {
-            "tag": "playvideo",
-            "patterns": [
-                "Play video [title]",
-                "Watch [title]",
-                "Play [title] on YouTube",
-                "Open video [title]",
-                "Show me [title] on YouTube"
-            ],
-            "responses": [
-                "Sure! Playing video [title]...",
-                "Opening [title] on YouTube...",
-                "Playing [title] for you...",
-                "Here's the video [title] you requested:",
-                "Let's watch [title] now."
-            ]
-        },
-        {
             "tag": "personalrecommendation",
             "patterns": [
                 "Show me my recommended videos",
@@ -649,23 +619,6 @@
             ]
         },
         {
-            "tag": "accessbookmark",
-            "patterns": [
-                "Open bookmarked applications",
-                "Show my bookmarked apps",
-                "Access saved shortcuts",
-                "List my saved applications",
-                "What applications do I have bookmarked?"
-            ],
-            "responses": [
-                "Sure! Here are your bookmarked applications:",
-                "Opening your bookmarked apps...",
-                "Accessing your saved shortcuts...",
-                "Listing your saved applications...",
-                "Here's the list of applications you have bookmarked:"
-            ]
-        },
-        {
             "tag": "Sleep",
             "patterns": [
                 "Sleep the device",
@@ -712,6 +665,22 @@
                 "Signing off...",
                 "Logging out from device...",
                 "Ending session..."
+            ]
+        },
+        {
+            "tag": "Open_Application",
+            "patterns": [
+                "Open",  
+                "Launch", 
+                "Start", 
+                "Run",
+                "Can you open",  
+                "Can you launch", 
+                "Can you start", 
+                "Can you run"
+            ],
+            "responses": [
+                "Opening the application..."
             ]
         }
     ]

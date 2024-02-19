@@ -142,13 +142,14 @@ while True:
                 # Sending E_mail
                 elif tag == "E_mail":
                     pass
-                
-                
-                # VOLUME CONTROL
+                  
+                # Volume Control
                 elif tag == "Volume_Up":
-                    print("Volume")
+                    print(f"{RED}{bot_name}{RESET}: {response}")
                     action_handler.volume_increase()
+
                 elif tag == "Volume_Down":
+                    print(f"{RED}{bot_name}{RESET}: {response}")
                     action_handler.volume_decrease()
 
                 # TODO: Storing messages in txt or docx file

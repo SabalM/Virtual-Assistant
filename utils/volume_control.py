@@ -21,15 +21,16 @@ class ActionHandler:
         try:
             # Check if the system is Windows
             if platform.system() == 'Windows':
-                # Define the PowerShell script
-                ps_script = "$obj = new-object -com wscript.shell; $obj.SendKeys([char]175)"
-                
+                # Powershell script to increase volume by 6
+                ps_script = "$obj = new-object -com wscript.shell; " + \
+                            "1..3 | ForEach-Object { $obj.SendKeys([char]175) }"
+
                 # Run the PowerShell script
                 os.system('powershell.exe -Command "' + ps_script + '"')
             else:
                 # Increase volume for non-Windows systems
-                # require cliclick to be installed
-                os.system("cliclick kp:volume-up kp:volume-up") # volume increase by two clicks
+                for _ in range(100):
+                    os.system("cliclick kp:volume-up kp:volume-up")
             self.logger.info("Volume Increased")
         except Exception as e:
             self.logger.error("Error increasing volume: %s", e)
@@ -40,14 +41,15 @@ class ActionHandler:
             # Check if the system is Windows
             if platform.system() == 'Windows':
                 # Define the PowerShell script
-                ps_script = "$obj = new-object -com wscript.shell; $obj.SendKeys([char]174)"
+                ps_script = "$obj = new-object -com wscript.shell; " + \
+                            "1..3 | ForEach-Object { $obj.SendKeys([char]174) }"
                 
                 # Run the PowerShell script
                 os.system('powershell.exe -Command "' + ps_script + '"')
             else:
                 # Decrease volume for non-Windows systems
-                # require cliclick to be installed
-                os.system("cliclick kp:volume-down kp:volume-down") # volume decrease by two clicks
-            self.logger.info("Volume Dncreased")
+                for _ in range(5):
+                    os.system("cliclick kp:volume-down kp:volume-down")
+            self.logger.info("Volume Decreased")
         except Exception as e:
             self.logger.error("Error decreasing volume: %s", e)

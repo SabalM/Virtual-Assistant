@@ -385,21 +385,36 @@
             "tag": "Volume_Up",
             "patterns": [
                 "volume up",
-                "increase volume"
+                "increase volume",
+                "increase vol",
+                "increment volume",
+                "increment vol"
             ],
             "responses": [
-                "Sure, what would you like to set the volumn to?"
+                "Sure, Increasing volume...",
+                "Okay, turning it up a notch...",
+                "Got it, cranking up the volume...",
+                "Understood, increasing the volume for you...",
+                "Sure thing! Boosting the volume now..."
             ]
         },
         {
             "tag": "Volume_Down",
             "patterns": [
                 "volume down",
-                "decrease volume"
+                "decrease volume",
+                "decrease vol",
+                "decrement volume",
+                "decrement vol"
             ],
             "responses": [
-                "Sure, what would you like to set the volumn to?"
+                "Sure, Decreasing volume...",
+                "Okay, lowering the volume a bit...",
+                "Got it, dialing down the volume...",
+                "Understood, decreasing the volume for you...",
+                "Sure thing! Reducing the volume now..."
             ]
+        
         },
         {
             "tag": "youtube",

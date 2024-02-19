@@ -16,3 +16,6 @@ automation/
 
 # Chrome Driver 
 core/chrome_driver
+
+#volume control log
+action_handler.log

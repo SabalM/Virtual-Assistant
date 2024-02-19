@@ -382,12 +382,20 @@
             ]
         },
         {
-            "tag": "volume",
+            "tag": "Volume_Up",
             "patterns": [
-                "volume",
-                "change volume",
-                "set the volume to",
-                "change the volume"
+                "volume up",
+                "increase volume"
+            ],
+            "responses": [
+                "Sure, what would you like to set the volumn to?"
+            ]
+        },
+        {
+            "tag": "Volume_Down",
+            "patterns": [
+                "volume down",
+                "decrease volume"
             ],
             "responses": [
                 "Sure, what would you like to set the volumn to?"

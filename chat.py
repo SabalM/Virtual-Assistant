@@ -4,8 +4,7 @@ import json
 import random
 
 # import Speech Engine
-# from core.engine import *
-# from core.intents import *
+from engine import *
 
 # import Intent
 from neuralnet.model import IntentModelClassifier
@@ -18,7 +17,6 @@ from utils.online_surf import *
 from utils.device_control import *
 from utils.application import *
 from utils.volume_control import ActionHandler
-
 
 
 # Instantiate ActionHandler for volume control
@@ -63,13 +61,20 @@ model.eval()
 # ANSI escape codes for colors
 GREEN = "\033[92m"
 RED = "\033[91m"
+BLUE = "\033[96m"
 RESET = "\033[0m"
 
 
 bot_name = "ByteBot"
-print("Let's chat! (type 'quit' to exit)")
+recognizer, mic, stream = initialize_model()
+print("-"*50)
+print(f"{GREEN}Welcome to ByteBot!{RESET}\n{BLUE}To exit, simply say {RED}'quit'{BLUE}.\n{GREEN}Speech Recognition{BLUE} is now initialized.{RESET}")
+print("-"*50)
+
 while True:
-    sentence = input(f"{GREEN}You{RESET}: ")
+    # sentence = input(f"{GREEN}You{RESET}: ")
+    sentence = speech_recognize(recognizer, stream)
+    print(f"{GREEN}You{RESET}: {sentence}")
     if sentence == "quit":
         break
 
@@ -95,30 +100,34 @@ while True:
 
                 # Create Folder
                 if tag == "Create":
-                    # recognizer, mic, stream = initialize_model()
                     # print(user_input)
-                    # folder_name = speech_recognize(recognizer, stream)
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    folder_name = input(f"{GREEN}Name your folder{RESET}: ")
+                    folder_name = speech_recognize(recognizer, stream)
+                    print(f"{BLUE}Folder name: {RESET}{folder_name}")
                     create_folder(folder_name)
 
                 # Delete Folder
                 elif tag == "Delete":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    folder_name = input(f"{GREEN}Name of folder{RESET}: ")
+                    folder_name = speech_recognize(recognizer, stream)
+                    print(f"{BLUE}Folder name: {RESET}{folder_name}")
                     delete_folder(folder_name)
                 
                 # Rename Folder
                 elif tag == "Rename":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    old_folder_name = input(f"{GREEN}Old name of folder{RESET}: ")
-                    new_folder_name = input(f"{GREEN}New name of folder{RESET}: ")
+                    old_folder_name = speech_recognize(recognizer, stream)
+                    print(f"{BLUE}Old Folder name: {RESET}{old_folder_name}")
+                    print(f"{RED}{bot_name}{RESET}: Give new name for folder `{old_folder_name}`")
+                    new_folder_name = speech_recognize(recognizer, stream)
+                    print(f"{BLUE}New Folder name: {RESET}{new_folder_name}")
                     rename_folder(old_folder_name, new_folder_name)
 
                 # Weather Forecast
                 elif tag == "weather":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    city = input(f"{GREEN}Enter city name{RESET}: ")
+                    city =  speech_recognize(recognizer, stream)
+                    print(f"{BLUE}Location: {RESET}{city}")
                     city, description, temperature = weather_forecast(city)
                     print(
                         f"{RED}{bot_name}{RESET}: In {city}, the temperature is {temperature} degrees Celsius. The weather condition is {description}.")
@@ -126,13 +135,16 @@ while True:
                 # Google Search
                 elif tag == "google":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    query = input(f"{GREEN}Enter search term{RESET}: ")
+                    query = speech_recognize(recognizer, stream)
+                    print(f"{BLUE}Search Query: {RESET}{query}")
                     search_results = google_search(query)
                     if search_results:
                         print(
                             f"{RED}{bot_name}{RESET}: Here are the search results ->")
                         for result in search_results:
                             print(result)
+                        print(
+                            f"{BLUE}Opening{RESET}: {search_results[0]}")
                     else:
                         print(
                             f"{RED}{bot_name}{RESET}: No search results found for '{query}'.")
@@ -156,6 +168,7 @@ while True:
                         time.sleep(1)  # 1-second delay between countdown messages
                     print(f"{RED}{bot_name}{RESET}: {response} now{RESET}")
 
+                # TODO: Email 
                 # Sending E_mail
                 elif tag == "E_mail":
                     pass
@@ -188,7 +201,7 @@ while True:
                 # TODO: Storing messages in txt or docx file
                 # TODO: Reminder, Alarm, Events, To-do list
                 # TODO: ChatGPT
-                # TODO: Email 
+
                 # TODO: Final Speech Transcription Integration
 
 

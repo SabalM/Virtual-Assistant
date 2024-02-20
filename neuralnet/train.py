@@ -1,8 +1,10 @@
 import torch
 from torch import nn 
 from torch.utils.data import Dataset, DataLoader
+from torchinfo import summary
 
 import numpy as np 
+import matplotlib.pyplot as plt
 import random 
 import json 
 
@@ -37,8 +39,8 @@ all_words = [stem(w) for w in all_words if w not in ignore_words]
 all_words = sorted(set(all_words))
 tags = sorted(set(tags))
 
-print(f"{len(pair)} patterns\n{len(tags)} tags: {tags}\n{len(all_words)} unique stemmed words: {all_words}")
-
+print(f"\nPatterns Found: {len(pair)}\nTags Found: {len(tags)}\nUnique stemmed words Found: {len(all_words)}")
+print(f"\nTags:\n{tags}\n\nUnique stemmed words:\n{all_words}\n")
 # Create training dataloader
 X_train = []
 y_train = []
@@ -54,9 +56,7 @@ y_train = np.array(y_train)
 
 # Setting up device-agnostic code
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-print(device)
-
-# device = 'cpu'
+print(f'Loaded on {device} device')
 
 # Custom DataLoader
 class ChatDataLoader(Dataset):
@@ -74,24 +74,30 @@ class ChatDataLoader(Dataset):
 dataset = ChatDataLoader()
 
 BATCH_SIZE = 8
-train_dataLoader = DataLoader(
-    dataset = dataset,
-    batch_size = BATCH_SIZE,
-    shuffle = True,
-    num_workers = 0     # no of CPU-core dataloaders
-)
 
-model = IntentModelClassifier(
-    input_size = len(X_train[0]),
-    hidden_size = 8,
-    output_size = len(tags)
-).to(device)
+train_dataLoader = DataLoader(dataset = dataset,
+                        batch_size = BATCH_SIZE,
+                        shuffle = True,
+                        num_workers = 0     # no of CPU-core dataloaders
+                    )
+
+model = IntentModelClassifier(input_size = len(X_train[0]),
+                        hidden_size = 8,
+                        output_size = len(tags)).to(device)
+
+# Generate Model Summary
+summary(model)
 
 # Setting up loss_fn and optimizer
 loss_fn = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
 epochs = 1000
+
+# Tracking
+epoch_count = []
+loss_values = []
+
 # Train Loop
 for epoch in range(epochs):
     for (words, labels) in train_dataLoader:
@@ -106,7 +112,10 @@ for epoch in range(epochs):
         optimizer.step()
 
     if epoch%100 == 0 or epoch == epochs-1:
+        epoch_count.append(epoch)
+        loss_values.append(loss)
         print(f'Epoch:{epoch} --- Train loss: {loss:.4f}')
+
 
 data = {
     "model_state": model.state_dict(),
@@ -117,8 +126,17 @@ data = {
     "tags": tags
 }
 
-
+# Saving Model
 model_save_path = "model/intent.pth"
-print(f'Saving trained model to directory {model_save_path}')
 torch.save(data, model_save_path)
 print(f'Saved trained model to directory {model_save_path}')
+
+# Plot loss curves
+plt.figure(figsize=(8,3))
+plt.plot(epoch_count, np.array(torch.tensor(loss_values).numpy()), label="Train Loss")
+# plt.plot(epoch_count, np.array(torch.tensor(test_loss_values).numpy()), label="Test Loss")
+plt.title("Train loss curve")
+plt.ylabel("Loss")
+plt.xlabel("Epoch")
+plt.legend()
+plt.show()

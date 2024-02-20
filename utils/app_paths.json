@@ -1,0 +1,17 @@
+{
+    "chrome": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "word": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE",
+    "notepad": "C:\\WINDOWS\\system32\\notepad.exe",
+    "excel": "C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE",
+    "powerpoint": "C:\\Program Files\\Microsoft Office\\root\\Office16\\POWERPNT.EXE",
+    "opera": "",
+    "firefox": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+    "valorant": "",  
+    "steam": "C:\\Program Files (x86)\\Steam\\steam.exe",
+    "discord": "",
+    "instagram": "C:\\Program Files (x86)\\Instagram\\Instagram.exe",
+    "twitch": "C:\\Program Files (x86)\\Twitch\\Twitch.exe",
+    "twitter": "C:\\Program Files (x86)\\Twitter\\Twitter.exe",
+    "youtube": "C:\\Program Files (x86)\\Youtube\\Youtube.exe",
+    "messenger": ""
+}

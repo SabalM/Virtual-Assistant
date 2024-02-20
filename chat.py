@@ -12,10 +12,20 @@ from neuralnet.model import IntentModelClassifier
 from neuralnet.nltk_utils import bag_of_words, tokenize
 
 # import task automation functions
-from utils.directory import *
+from utils.app_handler import *
 from utils.weather import *
 from utils.online_surf import *
 from utils.device_control import *
+from utils.application import *
+from utils.volume_control import ActionHandler
+
+
+# Instantiate ActionHandler for volume control
+action_handler = ActionHandler()
+
+# Loading Application Paths JSON file 
+with open('utils/app_paths.json', 'r') as f:
+    application_paths = json.load(f)
 
 # Setting device agnostic code
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -55,7 +65,7 @@ bot_name = "ByteBot"
 print("Let's chat! (type 'quit' to exit)")
 while True:
     sentence = input(f"{GREEN}You{RESET}: ")
-    if sentence == "bye":
+    if sentence == "quit":
         break
 
     sentence = tokenize(sentence)
@@ -137,16 +147,39 @@ while True:
                 # Sending E_mail
                 elif tag == "E_mail":
                     pass
-                
-                
-                # TODO: VOLUME CONTROL
+                  
+                # Volume Control
+                elif tag == "Volume_Up":
+                    print(f"{RED}{bot_name}{RESET}: {response}")
+                    action_handler.volume_increase()
+
+                elif tag == "Volume_Down":
+                    print(f"{RED}{bot_name}{RESET}: {response}")
+                    action_handler.volume_decrease()
+
+                # Open Application 
+                elif tag == "Open_Application":
+                    print(f"{RED}{bot_name}{RESET}: {response}")
+                    input_sentence = ' '.join(sentence)
+                    # print(sentence, input_sentence)
+                    application_name = extract_application_name(input_sentence)
+                    if application_name:
+                        open_application(application_name.lower(), application_paths)
+                        print(f"Opened {application_name}")
+                    else:
+                        print("No application name found in the input sentence.")
+
+
+
+
                 # TODO: Storing messages in txt or docx file
                 # TODO: Reminder, Alarm, Events, To-do list
                 # TODO: ChatGPT
                 # TODO: Email
-                # TODO: Application Bookmark
                 # TODO: File search and handling 'Copy, Renaming, Move Folders/Files'  
                 # TODO: Final Speech Transcription Integration
+
+
 
 
                 else:

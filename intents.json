@@ -312,7 +312,7 @@
             ]
         },
         {
-            "_comment": "Create a Folder",
+            "_comment_": "Create a Folder",
             "tag": "Create",
             "patterns": [
                 "create folder",
@@ -340,7 +340,7 @@
             ]
         },
         {
-            "_comment": "Delete a Folder",
+            "_comment_": "Delete a Folder",
             "tag": "Delete",
             "patterns": [
                 "delete folder",
@@ -367,6 +367,30 @@
                 "Specify the folder you want to eliminate."
             ]
         },
+        {
+            "_comment_": "Rename a Folder",
+            "tag": "Rename",
+            "patterns": [
+                "rename folder",
+                "change folder name",
+                "rename directory",
+                "change directory name",
+                "alter folder name",
+                "alter directory name"
+            ],
+            "responses": [
+                "What is the current name of the folder you want to rename?",
+                "Please provide the current name of the folder you wish to rename.",
+                "Give me the current name of the folder you want to rename.",
+                "Specify the current name of the folder you want to rename.",
+                "Tell me the current name of the folder you'd like to alter.",
+                "Enter the current name of the folder you want to alter.",
+                "What's the current name of the folder you want to change?",
+                "Which folder would you like to rename?",
+                "Please tell me the current name of the folder you want to alter.",
+                "Specify the folder you want to rename."
+            ]
+        },        
         {
             "tag": "email",
             "patterns": [

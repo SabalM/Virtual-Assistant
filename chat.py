@@ -20,8 +20,13 @@ from utils.application import *
 from utils.volume_control import ActionHandler
 
 
+
 # Instantiate ActionHandler for volume control
 action_handler = ActionHandler()
+
+# Load API keys from .env
+from dotenv import load_dotenv
+load_dotenv()
 
 # Loading Application Paths JSON file 
 with open('utils/app_paths.json', 'r') as f:
@@ -102,6 +107,13 @@ while True:
                     print(f"{RED}{bot_name}{RESET}: {response}")
                     folder_name = input(f"{GREEN}Name of folder{RESET}: ")
                     delete_folder(folder_name)
+                
+                # Rename Folder
+                elif tag == "Rename":
+                    print(f"{RED}{bot_name}{RESET}: {response}")
+                    old_folder_name = input(f"{GREEN}Old name of folder{RESET}: ")
+                    new_folder_name = input(f"{GREEN}New name of folder{RESET}: ")
+                    rename_folder(old_folder_name, new_folder_name)
 
                 # Weather Forecast
                 elif tag == "weather":
@@ -172,11 +184,11 @@ while True:
 
 
 
+
                 # TODO: Storing messages in txt or docx file
                 # TODO: Reminder, Alarm, Events, To-do list
                 # TODO: ChatGPT
-                # TODO: Email
-                # TODO: File search and handling 'Copy, Renaming, Move Folders/Files'  
+                # TODO: Email 
                 # TODO: Final Speech Transcription Integration
 
 

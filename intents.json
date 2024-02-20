@@ -22,15 +22,29 @@
                 "Hello",
                 "Good day",
                 "Namaste",
-                "yo"
+                "yo",
+                "Greetings",
+                "What's up?",
+                "Howdy",
+                "Hey, how's it going?",
+                "Hey, good to see you",
+                "Hey, what's new?",
+                "Hi, how have you been?",
+                "Hello, it's been a while",
+                "Hola, ¿cómo estás?",
+                "Hello there, what's going on?",
+                "Namaste, how are you today?",
+                "Yo, what's good?"
             ],
             "responses": [
-                "Hello",
-                "Good to see you again",
-                "Hi there, how can I help?"
-            ],
-            "context": [
-                ""
+                "Hello, it's nice to meet you!",
+                "Good to see you again!",
+                "Hi there, how can I assist you today?",
+                "Hey, I'm here to help!",
+                "Hello, how's your day going so far?",
+                "Good day to you too!",
+                "Namaste, how may I be of service to you?",
+                "Yo, what's on your mind?"
             ]
         },
         {
@@ -41,17 +55,40 @@
                 "Goodbye",
                 "Get lost",
                 "Till next time",
-                "exit"
+                "exit",
+                "Farewell",
+                "Take care",
+                "Adios",
+                "Later",
+                "Catch you later",
+                "So long",
+                "Until we meet again",
+                "I'm out",
+                "Off I go",
+                "Time to go",
+                "Goodnight",
+                "See you soon",
+                "Adieu",
+                "Hasta la vista"
             ],
             "responses": [
-                "See you!",
-                "Have a nice day",
-                "Bye! Come back again soon."
-            ],
-            "context": [
-                ""
+                "See you later!",
+                "Have a great day!",
+                "Goodbye! Come back again soon.",
+                "Farewell, friend!",
+                "Take care of yourself!",
+                "Adios, amigo!",
+                "Later, alligator!",
+                "Until next time!",
+                "I'm out, peace!",
+                "Off I go, see you!",
+                "Time to go, bye!",
+                "Goodnight, sleep well!",
+                "See you soon, friend!",
+                "Adieu, my friend!",
+                "Hasta la vista, baby!"
             ]
-        },
+        },        
         {
             "tag": "thanks",
             "patterns": [
@@ -59,17 +96,36 @@
                 "Thank you",
                 "That's helpful",
                 "Awesome, thanks",
-                "Thanks for helping me"
+                "Thanks for helping me",
+                "Much appreciated",
+                "You're a lifesaver",
+                "I owe you one",
+                "Thanks a million",
+                "You're the best",
+                "I'm grateful",
+                "Thank you so much",
+                "Thanks a bunch",
+                "You're awesome",
+                "You rock"
             ],
             "responses": [
                 "Happy to help!",
                 "Any time!",
-                "My pleasure"
-            ],
-            "context": [
-                ""
+                "My pleasure",
+                "Glad I could assist!",
+                "You're welcome!",
+                "Always here to lend a hand!",
+                "No problem at all!",
+                "It's what I'm here for!",
+                "Don't mention it!",
+                "I'm glad I could be of assistance!",
+                "Thank you for your kind words!",
+                "You're too kind!",
+                "It was my pleasure!",
+                "Thanks for letting me know!",
+                "You're awesome too!"
             ]
-        },
+        },        
         {
             "tag": "noanswer",
             "patterns": [],
@@ -80,9 +136,6 @@
                 "I'm having trouble understanding that",
                 "Could you please repeat that?",
                 "I didn't catch that, could you repeat it?"
-            ],
-            "context": [
-                ""
             ]
         },
         {
@@ -95,10 +148,7 @@
                 "What support is offered?"
             ],
             "responses": [
-                "I am a general purpose chatbot. My capabilities are : \n 1. I can chat with you. Try asking me for jokes or riddles! \n 2. Ask me the date and time \n 3. I can google search for you. Use format google: your query \n 4. I can get the present weather for any city. Use format weather: city name \n 5. I can get you the top 10 trending songs globally. Type 'songs' \n 6. I can set a timer for you. Enter 'set a timer: minutes to timer' \n For suggestions to help me improve, send an email to my creator shashinmaharjan@gmail.com . Thank you!! "
-            ],
-            "context": [
-                ""
+                "I am a general-purpose chatbot with the following capabilities:\n1. I can chat with you. Try asking me for jokes or riddles!\n2. Ask me the date and time.\n3. I can perform a Google search for you. Use the format 'google: your query'.\n4. I can provide the current weather for any city. Use the format 'weather: city name'.\n5. I can get you the top 10 trending songs globally. Type 'songs'.\n6. I can set a timer for you. Enter 'set a timer: minutes to timer'.\n7. I can send emails for you.\n8. I can create, rename, delete, and search for folders.\n9. I can open or launch applications.\n10. I can provide the current temperature.\n11. I can play videos on YouTube.\n\nFor suggestions to help me improve, send an email to my creator at shashinmaharjan@gmail.com. Thank you!"
             ]
         },
         {
@@ -120,19 +170,26 @@
                 "I went to see the doctor about my short-term memory problems – the first thing he did was make me pay in advance",
                 "As I get older and I remember all the people I’ve lost along the way, I think to myself, maybe a career as a tour guide wasn’t for me.",
                 "o what if I don't know what 'Armageddon' means? It's not the end of the world."
-            ],
-            "context": [
-                "jokes"
             ]
         },
         {
             "tag": "Identity",
             "patterns": [
                 "Who are you",
-                "what are you"
+                "what are you",
+                "Tell me about yourself",
+                "Introduce yourself",
+                "What's your purpose",
+                "Explain your function",
+                "Are you a bot?",
+                "What's your name?"
             ],
             "responses": [
-                "I am your virtual asssitant, a Deep-Learning chatbot"
+                "I am your virtual assistant, powered by cutting-edge Deep Learning technology. My name is ByteBot, and I'm here to assist you!",
+                "Hello! I'm ByteBot, your friendly virtual assistant. I'm designed to help you with various tasks and provide information on a wide range of topics.",
+                "I'm ByteBot, an AI-powered virtual assistant programmed to assist you with tasks and provide helpful information. How can I assist you today?",
+                "Hey there! I'm ByteBot, your personal assistant. I'm here to make your life easier by helping you with tasks and answering your questions.",
+                "Greetings! I'm ByteBot, an advanced virtual assistant here to lend you a hand. How can I help you today?"
             ]
         },
         {
@@ -142,10 +199,25 @@
                 "Wazzup",
                 "How are you",
                 "sup",
-                "How you doing"
+                "How you doing",
+                "Hey there",
+                "What's happening",
+                "What's going on",
+                "Any news",
+                "How's it going"
             ],
             "responses": [
-                "All good..What about you?"
+                "All good..What about you?",
+                "Not much, just here to help!",
+                "Hey! I'm just chilling, ready to assist you!",
+                "Sup! How can I assist you today?",
+                "I'm doing well, thanks for asking. How about you?",
+                "Hey there! I'm here, ready to chat!",
+                "Just hanging out, ready to assist you with anything you need!",
+                "Nothing much, just here to make your day better!",
+                "Hey! Not much happening, but I'm here to help if you need anything!",
+                "All quiet on this end, but I'm ready to assist you!",
+                "Not too much, just waiting for your command!"
             ]
         },
         {
@@ -156,10 +228,30 @@
                 "lol",
                 "rofl",
                 "lmao",
-                "thats funny"
+                "thats funny",
+                "hilarious",
+                "LOL",
+                "funny stuff",
+                "can't stop laughing",
+                "hahahaha",
+                "that cracked me up"
             ],
             "responses": [
-                "Glad I could make you laugh !"
+                "Glad I could make you laugh!",
+                "Laughter is the best medicine!",
+                "I'm here to bring a smile to your face!",
+                "LOL! Humor is my specialty.",
+                "Haha, I aim to please!",
+                "Giggles all around!",
+                "ROFL! You crack me up too!",
+                "LMAO! You're too funny.",
+                "Keep those laughs coming!",
+                "Haha, glad you enjoyed it!",
+                "That's what I'm here for, to bring some laughter into your day!",
+                "Your laughter is music to my ears!",
+                "Haha, I'm glad we're on the same wavelength!",
+                "Thanks for the laugh!",
+                "I'm on a roll with the jokes today!"
             ]
         },
         {
@@ -167,20 +259,40 @@
             "patterns": [
                 "you are dumb",
                 "shut up",
-                "idiot"
+                "idiot",
+                "fuck you"
             ],
             "responses": [
-                "Well that hurts :("
+                "Well that hurts :(",
+                "I'm sorry to hear that.",
+                "That's hurtful.",
+                "Ouch, that stings.",
+                "I'm sorry if I've disappointed you.",
+                "I apologize if I've upset you."
             ]
         },
         {
             "tag": "activity",
             "patterns": [
                 "what are you doing",
-                "what are you upto"
+                "what are you upto",
+                "what's going on",
+                "are you busy",
+                "anything new",
+                "what's happening",
+                "any updates"
             ],
             "responses": [
-                "Talking to you, of course!"
+                "Talking to you, of course!",
+                "Just here, ready to assist you!",
+                "Not much, just hanging out!",
+                "I'm always available to help!",
+                "Nothing new, just waiting for your command!",
+                "Just chilling and ready to chat!",
+                "Nope, just here to help!",
+                "I'm here, what can I do for you?",
+                "Just waiting for your next question!",
+                "Nothing much, just waiting to assist you!"
             ]
         },
         {
@@ -190,10 +302,28 @@
                 "Great",
                 "I know",
                 "ok",
-                "yeah"
+                "yeah",
+                "Fantastic",
+                "Cool",
+                "Amazing",
+                "Brilliant",
+                "Sweet",
+                "Nice",
+                "Wow",
+                "Incredible"
             ],
             "responses": [
-                "Yeah!"
+                "Wow, thank you for saying that. I hope you have a great day ahead!",
+                "That's awesome! Thank you. Wishing you a fantastic day!",
+                "Incredible! I appreciate your enthusiasm. Have a wonderful day!",
+                "Cool! Thanks for sharing. Have an amazing day!",
+                "Brilliant! Your positivity brightens my day. Wishing you all the best!",
+                "Amazing! Your words make my day brighter. Have a sweet day ahead!",
+                "Fantastic! Your energy is contagious. Wishing you a nice day!",
+                "Sweet! Thank you for your kind words. Have a great day!",
+                "That's nice to hear! Thanks a lot. Have an awesome day!",
+                "Great! I'm glad you think so. Wishing you a day filled with wonder!",
+                "That's just incredible! Thank you for sharing your excitement. Have a fantastic day!"
             ]
         },
         {
@@ -220,35 +350,6 @@
             ]
         },
         {
-            "tag": "appreciate",
-            "patterns": [
-                "You are awesome",
-                "you are the best",
-                "you are great",
-                "you are good",
-                "You're amazing",
-                "You're fantastic",
-                "You're brilliant",
-                "You're awesome"
-            ],
-            "responses": [
-                "Thank you!",
-                "Thank you! You're pretty awesome yourself!",
-                "You're too kind! Thank you!",
-                "Aw, shucks! Thanks!"
-            ]
-        },
-        {
-            "tag": "nicety",
-            "patterns": [
-                "it was nice talking to you",
-                "good talk"
-            ],
-            "responses": [
-                "It was nice talking to you as well! Come back soon!"
-            ]
-        },
-        {
             "tag": "no",
             "patterns": [
                 "no",
@@ -263,12 +364,17 @@
             "patterns": [
                 "who inspires you",
                 "who is your inspiration",
-                "who motivates you"
+                "who motivates you",
+                "who built you",
+                "who created you",
+                "who made you"
             ],
             "responses": [
-                "Personally, I find my creator 'Shashin' very inspiring. I might not be very fair though... since half of me was also built by 'Saugat', 'Sabal' and 'Neema'."
+                "Personally, I find my creators very inspiring. I was built by 'Shashin', 'Saugat', 'Sabal', and 'Neema', so I draw inspiration from their collective efforts.",
+                "I was brought to life by a team of talented individuals including 'Shashin', 'Saugat', 'Sabal', and 'Neema'. Their dedication and creativity are my inspiration.",
+                "My existence is thanks to the hard work and ingenuity of 'Shashin', 'Saugat', 'Sabal', and 'Neema'. They are the ones who built me from the ground up."
             ]
-        },
+        },        
         {
             "tag": "timer",
             "patterns": [
@@ -312,7 +418,7 @@
             ]
         },
         {
-            "_comment": "Create a Folder",
+            "_comment_": "Create a Folder",
             "tag": "Create",
             "patterns": [
                 "create folder",
@@ -340,7 +446,7 @@
             ]
         },
         {
-            "_comment": "Delete a Folder",
+            "_comment_": "Delete a Folder",
             "tag": "Delete",
             "patterns": [
                 "delete folder",
@@ -367,6 +473,30 @@
                 "Specify the folder you want to eliminate."
             ]
         },
+        {
+            "_comment_": "Rename a Folder",
+            "tag": "Rename",
+            "patterns": [
+                "rename folder",
+                "change folder name",
+                "rename directory",
+                "change directory name",
+                "alter folder name",
+                "alter directory name"
+            ],
+            "responses": [
+                "What is the current name of the folder you want to rename?",
+                "Please provide the current name of the folder you wish to rename.",
+                "Give me the current name of the folder you want to rename.",
+                "Specify the current name of the folder you want to rename.",
+                "Tell me the current name of the folder you'd like to alter.",
+                "Enter the current name of the folder you want to alter.",
+                "What's the current name of the folder you want to change?",
+                "Which folder would you like to rename?",
+                "Please tell me the current name of the folder you want to alter.",
+                "Specify the folder you want to rename."
+            ]
+        },        
         {
             "tag": "email",
             "patterns": [

@@ -1,81 +1,91 @@
 # Virtual Assistant
+## Features
+- **Speech Recognition**: Utilizes the `Vosk` model for accurate speech recognition, enabling seamless interaction through voice commands.
+- **Intent Classification**: Employs a `three-layer linear` model with `ReLU activation` functions to classify user intents effectively.
+- **Basic Task Automation**: Capable of performing various basic tasks, such as creating, renaming, and deleting folders, searching the web, managing device controls, and more.
+- **Expandability**: Can be easily expanded to accommodate additional functionalities based on specific user needs.
 
-### Dependencies
-To install the required Python packages you can use the following command:
+## Usage
+To use the Virtual Assistant:
 
-```bash
-pip install -r requirements.txt
-```
-### Train the Intent Classifier Model
-To run the `train.py`, load the dependencies requirements and use the following command:
-```bash
-py .\neuralnet\train.py
-```
+- Install Dependencies:
 
-The `intent.pth` should be saved under `model` directory after executing `train.py`
+    ```bash
+    pip install -r requirements.txt
+    ```
+- Run `train.py` for **Intent Classification**:
 
-If you want to customize the intent according to your needs, add the `tags`, `patterns` and `responses` inside `intents.json` in following format and re-run `train.py` while adding functionality features in `chat.py`. The `intent.json` should follow this base format:
+    ```bash
+    py .\neuralnet\train.py
+    ```
+    The `intent.pth` will be saved under `model` directory after executing `train.py`.
 
-```json
-{
-    "intents": [
-        {
-            "tag": "greeting",
-            "patterns": [
-                "Hi there",
-                "Hello",
-                "yo"
-            ],
-            "responses": [
-                "Hello",
-                "Good to see you again",
-                "Hi there, how can I help?"
-            ],
-        }
-    ]
-}
-```
+- Set API Keys:
 
-### Run Chatbot
-To run the `chat.py` use the following command:
+    Create a `.env` file in the main directory of the project. Inside the `.env` file, define the variable for your *API key*
 
-```bash
-py chat.py
-```
+    Below is a list of websites and APIs used in this project. Click on the links to access their documentation and obtain the necessary information.
 
-### API Refrences
-Below is a list of websites and APIs used in this project. Click on the links to access their documentation and obtain the necessary information.
+    - [Open Weather Map](https://openweathermap.org/api)
 
-- [Open Weather Map](https://openweathermap.org/api)
+        *Make sure to review the documentation for each API to understand their usage and any specific requirements, such as obtaining API keys or authentication tokens.*
 
-*Make sure to review the documentation for each API to understand their usage and any specific requirements, such as obtaining API keys or authentication tokens.*
+    ```bash
+    WEATHER_API_KEY = "{{secret.YOUR_API_KEY}}"
+    ```
 
-### Setting Up API Key
-- Create a `.env` file in the main directory of the project. Inside the `.env` file, define the variable for your *API key*
+- Run Script: 
 
-```bash
-WEATHER_API_KEY = "{{secret.YOUR_API_KEY}}"
-```
+    ```bash
+    py chat.py
+    ```
 
-`Note: Currently the project is in WIP phase. And will be shortly integrated with speech recognizer engine after debugging and integrating necessary features.`
+- Interaction:
 
-### Check model
+    ```
+    You: hello
+    ByteBot: Hi there, how can I assist you today?
+    You: tell me a joke
+    ByteBot: A perfectionist walked into a bar...apparently, the bar wasn't set high enough
+    You:  
+    ```
 
-```bash
-from core.engine import initialize_model, speech_recognize
-# Transcript
-transcript = ''
+- Customization:
 
-if __name__ == "__main__":
-    recognizer, mic, stream = initialize_model()
+    If you want to customize the intent according to your needs, add the `tags`, `patterns` and `responses` inside `intents.json` in following format and re-run `train.py` while adding functionality features in `chat.py`. The `intent.json` should follow this base format:
 
-    while True:
-        data=stream.read(4096)
-        if recognizer.AcceptWaveform(data):
-            result = recognizer.Result()[14:-3]
-            transcript += result + ' '
-            print(transcript)
-```
+    ```json
+    {
+        "intents": [
+            {
+                "tag": "greeting",
+                "patterns": [
+                    "Hi there",
+                    "Hello",
+                    "yo"
+                ],
+                "responses": [
+                    "Hello",
+                    "Good to see you again",
+                    "Hi there, how can I help?"
+                ],
+            }
+        ]
+    }
+    ```
+
+
+
+## Contributors <img src="https://user-images.githubusercontent.com/74038190/213844263-a8897a51-32f4-4b3b-b5c2-e1528b89f6f3.png" width="25px" />
+<a href="https://github.com/404saugat404/automation/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=404saugat404/automation"/>
+</a>
+
+### Limitations
+*The current version of the Virtual Assistant may have limitations in complex tasks or specialized domains. You can add more functions or integrate `Language Models` like `Llama2`, `MistralAI`, `BERT`.*
+
+<!-- License
+[License Information] -->
 
 ---
-Feel free to send issues if you face any problem.
+Feel free to customize and extend the **Virtual Assistant** to suit your specific needs and requirements. Contributions and feedback are welcome! 

@@ -92,7 +92,7 @@ summary(model)
 loss_fn = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
-epochs = 1000
+epochs = 800
 
 # Tracking
 epoch_count = []

@@ -18,8 +18,13 @@ def weather_forecast(city):
     # If the recognized city is blank, set default to "Kathmandu"
     city = city if city.strip() else "Kathmandu"
 
-    base_url = 'http://api.openweathermap.org/data/2.5/weather?'
+    base_url = 'https://api.openweathermap.org/data/2.5/weather?'
     api_key = os.getenv("WEATHER_API_KEY")
+
+    if api_key is None:
+        print("API key is missing or invalid.")
+        return (f"Error: API key is missing or invalid. Please set a valid API key.", None, None)
+
     url = f"{base_url}q={city}&appid={api_key}"
     response = requests.get(url)
 
@@ -27,7 +32,7 @@ def weather_forecast(city):
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
         print(f"HTTP Error: {err}")
-        return f"Error: Could not retrieve weather data for {city}. Please try again later."
+        return (f"Error: Could not retrieve weather data for {city}. Please try again later.", None, None)
 
     if response.status_code == 200:
         # Save JSON response to a file
@@ -49,8 +54,8 @@ def weather_forecast(city):
         else:
             temperature = "N/A"
 
-        return city, description, temperature
+        return (city, description, temperature)
     else:
-        print(
-            f"Error: {response.status_code}. Could not retrieve weather data for {city}.")
-        return f"Error: Could not retrieve weather data for {city}. Please try again later."
+        print(f"Error: {response.status_code}. Could not retrieve weather data for {city}.")
+        return (f"Error: Could not retrieve weather data for {city}. Please try again later.", None, None)
+

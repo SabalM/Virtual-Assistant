@@ -549,6 +549,13 @@
         {
             "tag": "youtube",
             "patterns": [
+                "launch youtube",
+                "open youtube",
+                "play you tube",
+                "you tube",
+                "search in you tube",
+                "search in youtube",
+                "launch youtube",
                 "video",
                 "play video",
                 "play a video",
@@ -693,23 +700,6 @@
                 "Let me Google that for you: [query]",
                 "Here's what I found about [query]:",
                 "Sure! I'll search for information about [query]."
-            ]
-        },
-        {
-            "tag": "personalrecommendation",
-            "patterns": [
-                "Show me my recommended videos",
-                "What are my personalized recommendations?",
-                "Access my YouTube recommendations",
-                "Show my suggested videos",
-                "What should I watch?"
-            ],
-            "responses": [
-                "Sure! Here are your personalized recommendations:",
-                "Accessing your recommended videos...",
-                "Let me find your personalized recommendations...",
-                "Here are some suggested videos for you:",
-                "I'll fetch your recommended videos right away."
             ]
         },
         {

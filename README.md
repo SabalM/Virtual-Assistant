@@ -8,19 +8,24 @@
 ## Usage
 To use the Virtual Assistant:
 
-- Install Dependencies:
+- **Download Speech Recongition Model**:
+    Extract the compressed `.rar` file inside `model` named directory.
+    
+    [Click here ](https://drive.google.com/file/d/1yRg1b8Eo_L7tDpLq1UoywlfPAPdrQY0v/view?usp=sharing)
+
+- **Install Dependencies**:
 
     ```bash
     pip install -r requirements.txt
     ```
-- Run `train.py` for **Intent Classification**:
+- **Run `train.py` for `Intent Classification`**:
 
     ```bash
     py .\neuralnet\train.py
     ```
     The `intent.pth` will be saved under `model` directory after executing `train.py`.
 
-- Set API Keys:
+- **Set API Keys**:
 
     Create a `.env` file in the main directory of the project. Inside the `.env` file, define the variable for your *API key*
 
@@ -34,13 +39,13 @@ To use the Virtual Assistant:
     WEATHER_API_KEY = "{{secret.YOUR_API_KEY}}"
     ```
 
-- Run Script: 
+- **Run Script**: 
 
     ```bash
     py chat.py
     ```
 
-- Interaction:
+- **Interaction**:
 
     ```
     You: hello
@@ -50,7 +55,7 @@ To use the Virtual Assistant:
     You:  
     ```
 
-- Customization:
+- #### Customization:
 
     If you want to customize the intent according to your needs, add the `tags`, `patterns` and `responses` inside `intents.json` in following format and re-run `train.py` while adding functionality features in `chat.py`. The `intent.json` should follow this base format:
 
@@ -74,6 +79,24 @@ To use the Virtual Assistant:
     }
     ```
 
+### Speech Recognition Model
+If the **speech recognition** model shows errors, run this script on the same directory path
+
+```python
+from engine import initialize_model, speech_recognize
+# Transcript
+transcript = ''
+
+if __name__ == "__main__":
+    recognizer, mic, stream = initialize_model()
+
+    while True:
+        data=stream.read(4096)
+        if recognizer.AcceptWaveform(data):
+            result = recognizer.Result()[14:-3]
+            transcript += result + ' '
+            print(transcript)
+```
 
 
 ## Contributors <img src="https://user-images.githubusercontent.com/74038190/213844263-a8897a51-32f4-4b3b-b5c2-e1528b89f6f3.png" width="25px" />

@@ -5,16 +5,6 @@ import os
 import json
 
 def weather_forecast(city):
-    responses = [
-        f"Sure! What city would you like the weather forecast for?",
-        f"I'd be happy to check the weather. Could you please tell me the city?",
-        f"Great! To provide the weather forecast, I just need to know the city name. What city are you interested in?"
-    ]
-
-    print(random.choice(responses))
-
-    # city = speech_recognize(recognizer, stream)
-
     # If the recognized city is blank, set default to "Kathmandu"
     city = city if city.strip() else "Kathmandu"
 
@@ -58,4 +48,3 @@ def weather_forecast(city):
     else:
         print(f"Error: {response.status_code}. Could not retrieve weather data for {city}.")
         return (f"Error: Could not retrieve weather data for {city}. Please try again later.", None, None)
-

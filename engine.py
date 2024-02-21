@@ -13,7 +13,7 @@ def initialize_model():
 def speech_recognize(recognizer, stream):
     audio_data = b''
     while True:
-        data = stream.read(4096)
+        data = stream.read(8192)
         audio_data += data
 
         if recognizer.AcceptWaveform(data):

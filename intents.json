@@ -547,6 +547,37 @@
         
         },
         {
+            "tag": "Brightness_Up",
+            "patterns": [
+                "brightness up",
+                "increase brightness",
+                "increase light",
+                "increment brightness",
+                "increment light"
+            ],
+            "responses": [
+                "Sure, Increasing brightness...",
+                "Got it, raising the brightness...",
+                "Understood, increasing the brightness for you..."
+            ]
+        },
+        {
+            "tag": "Brightness_Down",
+            "patterns": [
+                "brightness down",
+                "decrease brightness",
+                "decrease light",
+                "decrement brightness",
+                "decrement light"
+            ],
+            "responses": [
+                "Sure, Decreasing brightness...",
+                "Got it, lowering the brightness...",
+                "Understood, deccreasing the brightness for you..."
+            ]
+        
+        },
+        {
             "tag": "youtube",
             "patterns": [
                 "launch youtube",

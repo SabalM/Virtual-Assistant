@@ -21,6 +21,9 @@ core/chrome_driver
 # To note you might want to check
 action_handler.log  
 
+# brightness control log
+brightness_controller.log
+
 # Application paths
 apps.json
 

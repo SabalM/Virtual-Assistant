@@ -17,10 +17,14 @@ from utils.online_surf import *
 from utils.device_control import *
 from utils.application import *
 from utils.volume_control import ActionHandler
+from utils.brightness_control import BrightnessController
 
 
 # Instantiate ActionHandler for volume control
 action_handler = ActionHandler()
+
+# Instantiate BrightnessController for volume control
+brightness_controller = BrightnessController()
 
 # Load API keys from .env
 from dotenv import load_dotenv
@@ -183,6 +187,15 @@ while True:
                 elif tag == "Volume_Down":
                     print(f"{RED}{bot_name}{RESET}: {response}")
                     action_handler.volume_decrease()
+
+                # Brightness Control
+                elif tag == "Brightness_Up":
+                    print(f"{RED}{bot_name}{RESET}: {response}")
+                    brightness_controller.Brightness_Increase()
+
+                elif tag == "Brightness_Down":
+                    print(f"{RED}{bot_name}{RESET}: {response}")
+                    brightness_controller.Brightness_Decrease()
 
                 # Open Application 
                 elif tag == "Open_Application":

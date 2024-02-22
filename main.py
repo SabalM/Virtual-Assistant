@@ -16,8 +16,9 @@ from utils.weather import *
 from utils.online_surf import *
 from utils.device_control import *
 from utils.application import *
-from utils.volume_control import ActionHandler
-from utils.brightness_control import BrightnessController
+from utils.volume_control import *
+from utils.brightness_control import *
+from utils.e_mail import *
 
 
 # Instantiate ActionHandler for volume control
@@ -176,8 +177,17 @@ while True:
 
                 # TODO: Email 
                 # Sending E_mail
-                elif tag == "E_mail":
-                    pass
+                elif tag == "email":
+                    print(f"{RED}{bot_name}{RESET}: {response}")
+                    send_mail_to = speech_recognize(recognizer, stream)
+                    print(f"{BLUE}Sending mail to: {RESET}{send_mail_to}")
+                    print(f"{RED}{bot_name}{RESET}: Write a Subject.")
+                    send_subject = speech_recognize(recognizer, stream)
+                    print(f"{BLUE}Mail Subject: {RESET}{send_subject}")
+                    print(f"{RED}{bot_name}{RESET}: Write a Message.")
+                    send_message = speech_recognize(recognizer, stream)
+                    print(f"{BLUE}Mail Message: {RESET}{send_message}")
+                    send_mail_to, send_subject, send_message = email(send_mail_to,send_subject,send_message)
                   
                 # Volume Control
                 elif tag == "Volume_Up":

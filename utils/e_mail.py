@@ -6,7 +6,7 @@ dict = {
     'saugat': 'saugat@gmail.com',
     'neema': 'neema@gmail.com',
     'searching': 'shashinmhrzn@gmail.com',
-    'server': 'maharjansabal@gmail.com'
+    'server': 'maharjansabal@gmail.com'     # since speech model is not accuracte placed a close sounding key name
 }
 
 # ANSI escape codes for colors

@@ -2,6 +2,7 @@ import torch
 import os
 import json
 import random
+import sys
 
 # import Speech Engine
 from engine import *
@@ -20,6 +21,20 @@ from utils.volume_control import *
 from utils.brightness_control import *
 from utils.e_mail import *
 
+# Import Speech Synthesis
+import pyttsx3
+
+# Initialize the TTS engine with custom properties
+def init_engine():
+    engine = pyttsx3.init()
+    # Set properties
+    engine.setProperty('rate', 175)    # Speed percent (can go over 100)
+    engine.setProperty('volume', 0.9)  # Volume 0-1
+    return engine
+
+def say(s):
+    engine.say(s)
+    engine.runAndWait()
 
 # Instantiate ActionHandler for volume control
 action_handler = ActionHandler()
@@ -105,8 +120,11 @@ while True:
 
                 # Create Folder
                 if tag == "Create":
-                    # print(user_input)
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    # Speak the response
+                    engine = init_engine()
+                    say(response)
+
                     folder_name = speech_recognize(recognizer, stream)
                     print(f"{BLUE}Folder name: {RESET}{folder_name}")
                     create_folder(folder_name)
@@ -114,6 +132,9 @@ while True:
                 # Delete Folder
                 elif tag == "Delete":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    engine = init_engine()
+                    say(response)
+
                     folder_name = speech_recognize(recognizer, stream)
                     print(f"{BLUE}Folder name: {RESET}{folder_name}")
                     delete_folder(folder_name)
@@ -121,9 +142,14 @@ while True:
                 # Rename Folder
                 elif tag == "Rename":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    engine = init_engine()
+                    say(response)
+                    
                     old_folder_name = speech_recognize(recognizer, stream)
                     print(f"{BLUE}Old Folder name: {RESET}{old_folder_name}")
                     print(f"{RED}{bot_name}{RESET}: Give new name for folder `{old_folder_name}`")
+                    
+                    say("Give new name for the old folder")
                     new_folder_name = speech_recognize(recognizer, stream)
                     print(f"{BLUE}New Folder name: {RESET}{new_folder_name}")
                     rename_folder(old_folder_name, new_folder_name)
@@ -131,17 +157,26 @@ while True:
                 # Weather Forecast
                 elif tag == "weather":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    engine = init_engine()
+                    say(response)
+
                     city =  speech_recognize(recognizer, stream)
                     print(f"{BLUE}Location: {RESET}{city}")
                     city, description, temperature = weather_forecast(city)
                     print(
                         f"{RED}{bot_name}{RESET}: In {city}, the temperature is {temperature} degrees Celsius. The weather condition is {description}.")
+                    say(f"In {city}, the temperature is {temperature} degrees Celsius. The weather condition is {description}.")
 
                 # Google Search
                 elif tag == "google":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    engine = init_engine()
+                    say(response)
+
                     query = speech_recognize(recognizer, stream)
                     print(f"{BLUE}Search Query: {RESET}{query}")
+                    say(f"Searching {query} in google")
+
                     search_results = google_search(query)
                     if search_results:
                         print(
@@ -157,13 +192,19 @@ while True:
                 # YouTube Search
                 elif tag == "youtube":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    engine = init_engine()
+                    say(response)
+
                     query = speech_recognize(recognizer, stream)
+                    say(f"Searching {query} in youtube")
                     print(f"{BLUE}Search Query: {RESET}{query}")
                     video_url = youtube_search(query)
                     print(f"{RED}{bot_name}{RESET}: Opening YouTube -> {video_url}")
 
                 # Device control
                 elif tag == "Sleep" or tag == "Shutdown" or tag == "LogOff":
+                    engine = init_engine()
+                    say(response)
                     print(f"{RED}{bot_name}{RESET}: Enter device control mode once again to verify\n1. sleep\n2. shutdown\n3. logoff\n")
                     choice = speech_recognize(recognizer, stream).lower()
                     cmd = system_control(choice)
@@ -175,16 +216,22 @@ while True:
                         time.sleep(1)  # 1-second delay between countdown messages
                     print(f"{RED}{bot_name}{RESET}: {response} now{RESET}")
 
-                # TODO: Email 
                 # Sending E_mail
                 elif tag == "email":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    engine = init_engine()
+                    say(response)
+
                     send_mail_to = speech_recognize(recognizer, stream)
                     print(f"{BLUE}Sending mail to: {RESET}{send_mail_to}")
-                    print(f"{RED}{bot_name}{RESET}: Write a Subject.")
+
+                    say("Kindly specify the subject of the email.")
+                    print(f"{RED}{bot_name}{RESET}: Kindly specify the subject of the email")
                     send_subject = speech_recognize(recognizer, stream)
                     print(f"{BLUE}Mail Subject: {RESET}{send_subject}")
-                    print(f"{RED}{bot_name}{RESET}: Write a Message.")
+                    
+                    say("Please enter the message content for the email.")
+                    print(f"{RED}{bot_name}{RESET}: Please enter the message content for the email.")
                     send_message = speech_recognize(recognizer, stream)
                     print(f"{BLUE}Mail Message: {RESET}{send_message}")
                     send_mail_to, send_subject, send_message = email(send_mail_to,send_subject,send_message)
@@ -192,24 +239,30 @@ while True:
                 # Volume Control
                 elif tag == "Volume_Up":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    say(response)
                     action_handler.volume_increase()
 
                 elif tag == "Volume_Down":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    say(response)
                     action_handler.volume_decrease()
 
                 # Brightness Control
                 elif tag == "Brightness_Up":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    say(response)
                     brightness_controller.Brightness_Increase()
 
                 elif tag == "Brightness_Down":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    say(response)
                     brightness_controller.Brightness_Decrease()
 
                 # Open Application 
                 elif tag == "Open_Application":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    say(response)
+
                     input_sentence = ' '.join(sentence)
                     # print(sentence, input_sentence)
                     application_name = extract_application_name(input_sentence)

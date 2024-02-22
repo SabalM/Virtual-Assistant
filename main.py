@@ -23,7 +23,7 @@ from utils.brightness_control import BrightnessController
 # Instantiate ActionHandler for volume control
 action_handler = ActionHandler()
 
-# Instantiate BrightnessController for volume control
+# Instantiate BrightnessController for brightness control
 brightness_controller = BrightnessController()
 
 # Load API keys from .env

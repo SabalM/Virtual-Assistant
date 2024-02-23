@@ -547,6 +547,37 @@
         
         },
         {
+            "tag": "Brightness_Up",
+            "patterns": [
+                "brightness up",
+                "increase brightness",
+                "increase light",
+                "increment brightness",
+                "increment light"
+            ],
+            "responses": [
+                "Sure, Increasing brightness...",
+                "Got it, raising the brightness...",
+                "Understood, increasing the brightness for you..."
+            ]
+        },
+        {
+            "tag": "Brightness_Down",
+            "patterns": [
+                "brightness down",
+                "decrease brightness",
+                "decrease light",
+                "decrement brightness",
+                "decrement light"
+            ],
+            "responses": [
+                "Sure, Decreasing brightness...",
+                "Got it, lowering the brightness...",
+                "Understood, deccreasing the brightness for you..."
+            ]
+        
+        },
+        {
             "tag": "youtube",
             "patterns": [
                 "launch youtube",
@@ -574,14 +605,14 @@
         {
             "tag": "Shutdown",
             "patterns": [
-                "Shutdown the computer",
-                "shutdown",
+                "Shut down the computer",
+                "shut down",
                 "turn off the computer",
                 "turn off",
-                "Shutdown the device",
+                "Shut down the device",
                 "Turn off the device",
                 "Off the device",
-                "Can you shutdown the device",
+                "Can you shut down the device",
                 "Can you turn off the device"
             ],
             "responses": [

@@ -30,6 +30,7 @@ def init_engine():
     # Set properties
     engine.setProperty('rate', 175)    # Speed percent (can go over 100)
     engine.setProperty('volume', 0.9)  # Volume 0-1
+    
     return engine
 
 def say(s):
@@ -239,17 +240,20 @@ while True:
                 # Volume Control
                 elif tag == "Volume_Up":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    engine = init_engine()
                     say(response)
                     action_handler.volume_increase()
 
                 elif tag == "Volume_Down":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    engine = init_engine()
                     say(response)
                     action_handler.volume_decrease()
 
                 # Brightness Control
                 elif tag == "Brightness_Up":
                     print(f"{RED}{bot_name}{RESET}: {response}")
+
                     say(response)
                     brightness_controller.Brightness_Increase()
 

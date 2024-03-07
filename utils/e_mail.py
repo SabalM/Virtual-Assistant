@@ -3,8 +3,8 @@ import smtplib
 from email.message import EmailMessage
 
 dict = {
-    'saugat': 'saugat@gmail.com',
-    'neema': 'neema@gmail.com',
+    'saugat':'saugat556513@gmail.com',
+    'neema':'neemalimbu04@gmail.com',
     'searching': 'shashinmhrzn@gmail.com',
     'server': 'maharjansabal@gmail.com'     # since speech model is not accuracte placed a close sounding key name
 }
@@ -21,11 +21,11 @@ bot_name = "ByteBot"
 def send_mail(receiver, subject, message):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
-    server.login('maharjansabal4@gmail.com', 'zdco oeix tuus pzna')
-    email = EmailMessage()
-    email['from'] = "maharjansabal4@gmail.com"
-    email['to'] = receiver
-    email['subject'] = subject
+    server.login('saugatthapa344@gmail.com','yqsr zlkc vutg oouu')
+    email=EmailMessage()
+    email['from']="saugatthapa344@gmail.com"
+    email['to']=receiver
+    email['subject']=subject
     email.set_content(message)
     server.send_message(email)
 

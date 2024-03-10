@@ -19,7 +19,7 @@ parser.add_argument("--batch_size", "-b",
                             help="Batch size for training")
 parser.add_argument("--epochs", "-e", 
                             type=int, 
-                            default=500, 
+                            default=250, 
                             help="Number of epochs for training")
 parser.add_argument("--plot", "-p", 
                             type=int, 
@@ -71,7 +71,7 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(f'Loaded on {device} device')
 
 model = IntentModelClassifier(input_size=len(all_words),
-                              hidden_size=8,
+                              hidden_size=32,
                               output_size=len(tags)).to(device)
 
 # Generate Model Summary
@@ -98,10 +98,10 @@ for epoch in range(args.epochs):
         loss.backward()
         optimizer.step()
 
-    if epoch % 25 == 0 or epoch == args.epochs - 1:
+    if epoch % 5 == 0 or epoch == args.epochs - 1:
         epoch_count.append(epoch)
         loss_values.append(loss)
-        if epoch % 100 == 0 or epoch == args.epochs - 1:
+        if epoch % 50 == 0 or epoch == args.epochs - 1:
             print(f'Epoch:{epoch} --- Train loss: {loss:.4f}')
 
 # Save trained model
@@ -109,7 +109,7 @@ model_save_path = "model/intent.pth"
 torch.save({
     "model_state": model.state_dict(),
     "input_size": len(all_words),
-    "hidden_size": 8,
+    "hidden_size": 32,
     "output_size": len(tags),
     "all_words": all_words,
     "tags": tags

@@ -21,8 +21,15 @@ To use the Virtual Assistant:
 - **Run `train.py` for `Intent Classification`**:
 
     ```bash
-    py .\neuralnet\train.py
+    py .\neuralnet\train.py -e <EPOCHS> -b <BATCH_SIZE> -p <PLOT:1>  
     ```
+
+    | Argument        | Short Option | Type | Default | Help                                        |
+    |-----------------|--------------|------|---------|---------------------------------------------|
+    | --batch_size    | -b           | int  | 8       | Batch size for training                     |
+    | --epochs        | -e           | int  | 250     | Number of epochs for training               |
+    | --plot          | -p           | int  | 0       | Whether to plot the loss curve (1 for yes, 0 for no) |
+
     The `intent.pth` will be saved under `model` directory after executing `train.py`.
 
 - **Set API Keys**:

@@ -48,7 +48,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Loading Application Paths JSON file 
-with open('utils/app_paths.json', 'r') as f:
+with open('data_archive/app_paths.json', 'r') as f:
     application_paths = json.load(f)
 
 # Setting device agnostic code
@@ -118,12 +118,12 @@ while True:
         for intent in intents['intents']:
             if tag == intent['tag']:
                 response = random.choice(intent['responses'])
+                engine = init_engine()
 
                 # Create Folder
                 if tag == "Create":
                     print(f"{RED}{bot_name}{RESET}: {response}")
                     # Speak the response
-                    engine = init_engine()
                     say(response)
 
                     folder_name = speech_recognize(recognizer, stream)
@@ -133,7 +133,6 @@ while True:
                 # Delete Folder
                 elif tag == "Delete":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    engine = init_engine()
                     say(response)
 
                     folder_name = speech_recognize(recognizer, stream)
@@ -143,7 +142,6 @@ while True:
                 # Rename Folder
                 elif tag == "Rename":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    engine = init_engine()
                     say(response)
                     
                     old_folder_name = speech_recognize(recognizer, stream)
@@ -158,7 +156,6 @@ while True:
                 # Weather Forecast
                 elif tag == "weather":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    engine = init_engine()
                     say(response)
 
                     city =  speech_recognize(recognizer, stream)
@@ -171,7 +168,6 @@ while True:
                 # Google Search
                 elif tag == "google":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    engine = init_engine()
                     say(response)
 
                     query = speech_recognize(recognizer, stream)
@@ -193,7 +189,6 @@ while True:
                 # YouTube Search
                 elif tag == "youtube":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    engine = init_engine()
                     say(response)
 
                     query = speech_recognize(recognizer, stream)
@@ -204,7 +199,6 @@ while True:
 
                 # Device control
                 elif tag == "Sleep" or tag == "Shutdown" or tag == "LogOff":
-                    engine = init_engine()
                     say(response)
                     print(f"{RED}{bot_name}{RESET}: Enter device control mode once again to verify\n1. sleep\n2. shutdown\n3. logoff\n")
                     choice = speech_recognize(recognizer, stream).lower()
@@ -220,7 +214,6 @@ while True:
                 # Sending E_mail
                 elif tag == "email":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    engine = init_engine()
                     say(response)
 
                     send_mail_to = speech_recognize(recognizer, stream)
@@ -240,20 +233,17 @@ while True:
                 # Volume Control
                 elif tag == "Volume_Up":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    engine = init_engine()
                     say(response)
                     action_handler.volume_increase()
 
                 elif tag == "Volume_Down":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-                    engine = init_engine()
                     say(response)
                     action_handler.volume_decrease()
 
                 # Brightness Control
                 elif tag == "Brightness_Up":
                     print(f"{RED}{bot_name}{RESET}: {response}")
-
                     say(response)
                     brightness_controller.Brightness_Increase()
 
@@ -266,7 +256,6 @@ while True:
                 elif tag == "Open_Application":
                     print(f"{RED}{bot_name}{RESET}: {response}")
                     say(response)
-
                     input_sentence = ' '.join(sentence)
                     # print(sentence, input_sentence)
                     application_name = extract_application_name(input_sentence)
@@ -283,10 +272,9 @@ while True:
                 # TODO: Reminder, Alarm, Events, To-do list
                 # TODO: ChatGPT
 
-                # TODO: Final Speech Transcription Integration
-
                 else:
                     print(f"{RED}{bot_name}{RESET}: {response}")
+                    say(response)
                 break
 
                 
